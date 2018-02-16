@@ -1,4 +1,4 @@
-<table width=300p>
+<table>
   <% @elements.each do |t| %>
     <tr><td><%= User.find(t.user_id).email %></td><td><%= t.texto %></td></tr>
   <% end %>
@@ -10,5 +10,5 @@
 <% end %>
 
 <% if user_signed_in? %>
-  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
+  <%= link_to('Log out', destroy_user_session_path, method: :delete) %>        
 <% end %>
