@@ -1,0 +1,14 @@
+<table width=300p>
+  <% @elements.each do |t| %>
+    <tr><td><%= User.find(t.user_id).email %></td><td><%= t.texto %></td></tr>
+  <% end %>
+</table>
+
+<%= form_for @element, as: :chat, url: chats_path, method: 'post' do |f| %>
+    <%= f.text_field :texto %>
+    <%= f.submit "OK" %>
+<% end %>
+
+<% if user_signed_in? %>
+  <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
+<% end %>
