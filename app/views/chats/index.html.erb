@@ -7,7 +7,7 @@
 </table>
 
 <%= form_for @element, as: :chat, url: chats_path, method: 'post' do |f| %>
-    <%= f.text_field :texto. autocomplete: :off %>
+    <%= f.text_field :texto, autocomplete: :off %>
     <%= f.submit "OK" %>
 <% end %>
 
