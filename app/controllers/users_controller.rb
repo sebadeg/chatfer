@@ -1,4 +1,4 @@
-class ChatsController < ApplicationController
+class UsersController < ApplicationController
 
   before_action :authenticate_user!
 
@@ -18,39 +18,15 @@ class ChatsController < ApplicationController
       }
     end
   end
-  
+
   def index
     p "Index"
-    @element = Chat.new()
-    if ( current_user.id <= 2 )
-      @elements = Chat.all
+    if ( current_user.id == 1 )
+      @elements = User.all
     else
       @elements = Array.new
     end
-
     result(nil,@elements)
   end  
-
-  def create
-    p "Create"
-
-
-    @element = Chat.new( 
-      user_id: 1, 
-      texto: params[:chat][:texto],
-      hide: false
-       )
-    if ( @element != nil ) && ( !@element.save )
-      @element = nil
-    end
-    
-    @elements = Chat.all
-    @elements.each do |e|
-      e.hide = true
-      e.save
-    end
-
-    result(chats_path,@element)
-  end
 
 end
