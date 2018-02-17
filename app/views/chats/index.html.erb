@@ -1,6 +1,6 @@
 <table>
   <% @elements.each do |t| %>
-    <% if current_user == 1 || !t.hide %>
+    <% if current_user.id == 1 || !t.hide %>
       </td><td><%= t.texto %></td></tr>
     <% end %>
   <% end %>

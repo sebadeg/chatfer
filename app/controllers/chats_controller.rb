@@ -44,10 +44,14 @@ class ChatsController < ApplicationController
       @element = nil
     end
     
-    @elements = Chat.all
-    @elements.each do |e|
-      e.hide = true
-      e.save
+    if current_user.id != 1 
+      @elements = Chat.all
+      @elements.each do |e|
+        if !e.hide
+          e.hide = true
+          e.save
+        end
+      end
     end
 
     result(chats_path,@element)
