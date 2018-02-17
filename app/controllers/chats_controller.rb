@@ -36,7 +36,7 @@ class ChatsController < ApplicationController
 
 
     @element = Chat.new( 
-      user_id: 1, 
+      user_id: current_user.id, 
       texto: params[:chat][:texto],
       hide: false
        )
